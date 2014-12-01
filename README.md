@@ -43,5 +43,24 @@ vagrant up --provider aws
 and you should have jekyll up and running in no time on port 8080 over at amazon.
 
 
+# Using docker notes
 
+```
+docker run -p 8080:8080 -td ubuntu
+docker attach [container_id]
+```
+
+
+# Configurable rsync excludes
+
+Our project makes it even easier to exclude files from rsync.
+
+By default, we ignore `.git` and `_site` folders.
+
+If you want to configure the excludes, simply add a `.vagrantignore` file in your `synced_folder`
+
+each line is a new entry for excludes.
+
+Good to know - our project makes it seamless on what provider you are running. While on AWS plugin
+the `excludes` parameter is different - but you don't have to worry about it.  [excludes with a single underscore character instead of two underscores like everyone else](https://github.com/mitchellh/vagrant-aws/issues/152)
 

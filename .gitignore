@@ -1,3 +1,5 @@
 nohup.out
 .vagrant
 .idea
+synced_folder
+provision.sh

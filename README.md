@@ -23,6 +23,8 @@ vagrant up --provider <cloud name>
 ```
 
 
+We also support virtual box, so you can simply run `vagrant up` from the root of this project without cloning VAM as well.
+
 # For example
 
 If you want to use AWS, you need to follow configuration example at [VAM - aws example](https://github.com/guy-mograbi-at-gigaspaces/vagrant-automation-machines/blob/master/aws/defaults.json)
@@ -50,17 +52,4 @@ docker run -p 8080:8080 -td ubuntu
 docker attach [container_id]
 ```
 
-
-# Configurable rsync excludes
-
-Our project makes it even easier to exclude files from rsync.
-
-By default, we ignore `.git` and `_site` folders.
-
-If you want to configure the excludes, simply add a `.vagrantignore` file in your `synced_folder`
-
-each line is a new entry for excludes.
-
-Good to know - our project makes it seamless on what provider you are running. While on AWS plugin
-the `excludes` parameter is different - but you don't have to worry about it.  [excludes with a single underscore character instead of two underscores like everyone else](https://github.com/mitchellh/vagrant-aws/issues/152)
 

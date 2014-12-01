@@ -1,16 +1,17 @@
 set -v
 set -x
+set -e
 
 sudo apt-get update
-sudo apt-get install -y ruby-dev nodejs git make
+sudo apt-get install -y  ruby1.9.1-dev nodejs git make
 sh -c "echo \"gem: --no-rdoc --no-ri\" >> ~/.gemrc"
 sudo gem install  jekyll bundler
 
 if [ ! -f Gemfile ]; then
 
-	if [ -f /home/vagrant/Gemfile ]; then	
+	if [ -f /vagrant/Gemfile ]; then
 		echo "copying gemfile"
-		cp -f /home/vagrant/Gemfile .
+		cp -f /vagrant/Gemfile .
 		
 	else
 		echo "unable to find Gemfile anywhere"
@@ -25,6 +26,6 @@ bundle install
 # sudo sh -c 'echo sleep 120 >> /etc/rc.local'
 # sudo /etc/init.d/rc.local start
 
-nohup jekyll serve --port 8080 --watch --limit_posts 1 --source getcloudify.org/ --destination /tmp/_site  &
+jekyll serve --port 8080 --detach --watch --limit_posts 1 --source getcloudify.org/ --destination /tmp/_site
 
 

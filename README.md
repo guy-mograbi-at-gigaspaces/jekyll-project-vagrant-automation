@@ -11,8 +11,13 @@ To use it, you should do the following steps
   - then export CONFIG_FILE for your cloud and run
 
 ```
+git clone https://github.com/guy-mograbi-at-gigaspaces/jekyll-project-vagrant-automation.git
+git clone https://github.com/guy-mograbi-at-gigaspaces/vagrant-automation-machines.git
+mv  vagrant-automation-machines/* jekyll-project-vagrant-automation
+cd jekyll-project-vagrant-automation
 ln -s <jekyll project> synced_folder
-export CONFIG_FILE=
+export CONFIG_FILE=<location to your json file with configuration>
+export VAGRANT_HOME=<recommended, optional>
 cd <cloud name>
 vagrant up --provider <cloud name>
 ```
